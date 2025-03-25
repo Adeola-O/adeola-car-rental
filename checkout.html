@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="stylesheet" href="./src/style.css" />
+  <link rel="stylesheet" href="./src/checkout.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="w-full py-4 px-6 md:px-12">
+        <nav class="relative">
+          <div class="flex justify-between items-center">
+            <a href="/" class="font-medium">
+              <div class="flex flex-col">
+                <span class="text-lg font-bold">ADEOLA'S</span>
+                <span class="text-sm">CAR RENTAL</span>
+              </div>
+            </a>
+            
+            <!-- {/* Hamburger menu for mobile (CSS-only solution) */} -->
+            <label for="menu-toggle" class="cursor-pointer lg:hidden">
+              <i data-lucide="menu" class="h-6 w-6" ></i>
+            </label>
+            <input type="checkbox" id="menu-toggle" class="hidden" />
+            
+            <!-- {/* Navigation links */} -->
+            <div class="nav-links absolute z-50 left-0 right-0 top-full bg-white shadow-md lg:shadow-none lg:relative lg:top-auto lg:bg-transparent lg:flex lg:space-x-8">
+              <a href="/manageBookings" class="block py-3 px-6 lg:px-0 hover:text-rental-accent border-b lg:border-b-0 transition-colors">
+                Manage Bookings
+              </a>
+              <a href="/" class="block py-3 px-6 lg:px-0 hover:text-rental-accent border-b lg:border-b-0 transition-colors">
+                About
+              </a>
+              <a href="/" class="block py-3 px-6 lg:px-0 hover:text-rental-accent border-b lg:border-b-0 transition-colors">
+                Contact
+              </a>
+              <a id="login" href="/login" class="block py-3 px-6 lg:px-0 hover:text-rental-accent border-b lg:border-b-0 transition-colors">
+                Login
+              </a>
+              <a id="signup" href="/signup" class="block py-3 px-6 lg:px-0 hover:text-rental-accent font-medium border-b lg:border-b-0 transition-colors">
+                Sign Up
+              </a>
+              <a id="logout" href="/signup" class="hidden py-3 px-6 lg:px-0 hover:text-rental-accent font-medium border-b lg:border-b-0 transition-colors">
+                Log out
+              </a>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main class="flex-1">
+        <div class="w-full bg-gray-200 py-6 px-4 md:px-8 lg:px-12">
+          <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-center items-start md:items-center">
+              
+              
+              <div class="flex items-center space-x-4">
+                <div class="mb-4 md:mb-0">
+                  <p id="rentDate" class="text-sm text-[#1A1F2C]">Pick up date - Return date</p>
+                  <p id="rentLocation" class="text-sm text-[#1A1F2C]">Pick up location - Return location</p>
+                </div>
+                <div class="flex items-center text-gray-500">
+                  <span class="mr-2">→</span>
+                  <span>Choose your car</span>
+                </div>
+                <div class="flex items-center text-gray-500">
+                  <span class="mr-2">→</span>
+                  <span>Choose your extras</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="font-medium mr-2">→</span>
+                  <span class="font-medium">Review and Book</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="w-full py-8 px-4 md:px-8 lg:px-12">
+          <div class="max-w-7xl mx-auto">
+            <h1 class="text-2xl font-bold text-[#1A1F2C] mb-6">Review Your Booking</h1>
+            
+            <div class="bookingContainer bg-gray-200 p-4 md:p-6 rounded mb-8">
+              
+            </div>
+            
+            <h1 class="text-2xl font-bold text-[#1A1F2C] mb-6">Payment Details</h1>
+            
+            <form class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="space-y-2">
+                  <label for="cardNumber" class="block font-medium">Card Number</label>
+                  <input 
+                    type="number" 
+                    id="cardNumber" 
+                    class="w-full h-12 px-4 border border-gray-300 rounded bg-gray-200"
+                    placeholder="1234 5678 9012 3456"
+                    pattern="\d{16}" 
+                    maxlength="16"
+                  />
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="space-y-2">
+                    <label for="expiryDate" class="block font-medium">Expiry Date</label>
+                    <div class="grid grid-cols-2 gap-2">
+                      <input 
+                        type="number" 
+                        id="expiryMonth" 
+                        class="w-full h-12 px-4 border border-gray-300 rounded bg-gray-200"
+                        placeholder="MM"
+                        pattern="\d{2}" 
+                        maxlength="2"
+                      />
+                      <input 
+                        type="number" 
+                        id="expiryYear" 
+                        class="w-full h-12 px-4 border border-gray-300 rounded bg-gray-200"
+                        placeholder="YY"
+                        pattern="\d{2}" 
+                        maxlength="2"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div class="space-y-2">
+                    <label for="cvv" class="block font-medium">CVV</label>
+                    <input 
+                      type="number" 
+                      id="cvv" 
+                      class="w-full h-12 px-4 border border-gray-300 rounded bg-gray-200"
+                      placeholder="123"
+                      pattern="\d{3}" 
+                      maxlength="3"
+                    />
+                  </div>
+                </div>
+                
+                <div class="space-y-2 md:col-span-2">
+                  <label for="nameOnCard" class="block font-medium">Name on Card</label>
+                  <input 
+                    type="text" 
+                    id="nameOnCard" 
+                    class="w-full h-12 px-4 border border-gray-300 rounded bg-gray-200"
+                    placeholder="John Smith"
+                  />
+                </div>
+              </div>
+              
+              <h2 class="text-xl font-bold text-[#1A1F2C] mt-8 mb-4">Billing Address</h2>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="space-y-2">
+                  <label for="country" class="block font-medium">Country</label>
+                  <input 
+                    type="text" 
+                    id="country" 
+                    class="w-full h-12 px-4 border border-gray-300 rounded bg-gray-200"
+                    placeholder="United Kingdom"
+                  />
+                </div>
+                
+                <div class="space-y-2">
+                  <label for="address" class="block font-medium">Address</label>
+                  <input 
+                    type="text" 
+                    id="address" 
+                    class="w-full h-12 px-4 border border-gray-300 rounded bg-gray-200"
+                    placeholder="123 Main St"
+                  />
+                </div>
+                
+                <div class="space-y-2">
+                  <label for="city" class="block font-medium">City</label>
+                  <input 
+                    type="text" 
+                    id="city" 
+                    class="w-full h-12 px-4 border border-gray-300 rounded bg-gray-200"
+                    placeholder="London"
+                  />
+                </div>
+                
+                <div class="space-y-2">
+                  <label for="postcode" class="block font-medium">Postcode</label>
+                  <input 
+                    type="text" 
+                    id="postcode" 
+                    class="w-full h-12 px-4 border border-gray-300 rounded bg-gray-200"
+                    placeholder="SW1A 1AA"
+                  />
+                </div>
+              </div>
+              
+              <div class="flex justify-end mt-8">
+                <button 
+                  id="bookButton"
+                  type="submit" 
+                  class="cursor-pointer bg-gray-300 hover:bg-gray-400 transition-colors text-[#1A1F2C] font-medium px-6 py-3 rounded border border-gray-400"
+                >
+                  Book Now
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/src/checkout.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</body>
+</html>
